@@ -1,7 +1,9 @@
 import express from 'express'
+ import cors from 'cors'
 const app = express();
-app.use(express.json());
- const port = 3000
+ app.use(cors());
+app.use(express.json()); // data in encrepted form
+ const port = process.env.PORT || 3000; // hame nhi pata heroku par kon se port hai ya nhi abhi 
 
 
  let users  =[];
@@ -33,7 +35,7 @@ app.get('/profile', (req, res) => {
   res.send(' i am profile page!')
 })
 app.post('/cv', (req, res) => {
-  res.send({
+  res.send({   // cv should be created in frontend part
     name:"vinod singh",
     class:"web and mobile dev",
     hard:"ideal in the  work of doning",
