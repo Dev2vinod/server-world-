@@ -53,7 +53,7 @@
 
                   console.log(fullname,age,email,password)
 
-                  document.getElementById("user").innerHTML = ` <h1>${fullname}</h1> <br> ${age}  <br> ${email} <br> ${password}`
+                  document.getElementById("user").innerHTML = ` <h1>${fullname}</h1> <br> ${age}  <br> ${email} <br> <b> ${password}</b>`
 
                   
 
@@ -66,25 +66,29 @@
                         
                         axios.get('http://localhost:3000/user')
                   .then(function (response) {
-                        document.getElementById("response").innerHTML = response.data.fullname;
+                        // document.getElementById("response").innerHTML = response.data;
                         // handle success
-                        console.log(response.data);
+
+                        response.data.map(eachUser => {
+                           document.querySelector("#response").innerHTML +=`${eachUser.fullname}${eachUser.age} ${eachUser.password}${eachUser.email}<br>` ; 
+                        })
+                        console.log(response.data,"front end part from get user");
                   })
       .catch(function (error) {
        // handle error
-       console.log(error.message);
+       console.log(error.message,"front end part error part ");
        })
 
         
                axios.post('http://localhost:3000/user', {
-             fullname:fullname ,
+             "fullname":fullname ,
              "age": age,
-             "email":email,
              "password":password,
              "email":email
+             
             })
             .then(function (response) {
-                  console.log(response.data);
+                  console.log(response.data,"i am comiing from front end part  in the post condition");
 
                  
             })

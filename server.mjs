@@ -94,7 +94,7 @@ app.post('/user', (req, res) => {
   }
   users.push(newUser);
   console.log(newUser);
-  res.send('your user is created on 4 feb 2024')
+  res.send('your user is created on 4 feb 2024 im coming from server site line number 97')
 })
 app.delete('/user/:userId', (req, res) => {
 
@@ -140,7 +140,7 @@ app.listen(port, () => {
 
   console.log(`this is working in my machine  listening on port ${port}`)
 
-  console.log("step to follow 1. npm init 2. npm i express 3.hello world from expressjs 4.go to package.json and write scripts  : node file name and save also 5. go to terminal and run command npm start")
+  console.log("step to follow 1. npm init 2. npm i express 3.hello world from expressjs 4.go to package.json and write scripts  : node file name and save also 5. go to terminal and run command npm start 6. install nodemon in terminal by npm i nodemon 7. script  'dev': npm run dev ")
 })
 
 
